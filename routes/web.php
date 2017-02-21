@@ -62,3 +62,12 @@ Route::group(['prefix'=>'admin'], function() {
 Route::get('article/{id}', ['as'=>'article', function ($id){
     echo $id;
 }]);
+
+// использование методов контроллера
+Route::get('/abouts', 'FirstController@show');
+
+// ссылка на route
+Route::get('/about', ['uses' => 'FirstController@hide', 'as'=>'about']);
+
+// обращение к методам REST
+Route::resource('/pages', 'CoreResource');
