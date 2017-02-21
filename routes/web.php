@@ -67,7 +67,7 @@ Route::get('article/{id}', ['as'=>'article', function ($id){
 Route::get('/abouts', 'FirstController@show');
 
 // ссылка на route
-Route::get('/about', ['uses' => 'FirstController@hide', 'as'=>'about']);
+Route::get('/about/{id}', ['uses' => 'FirstController@hide', 'as'=>'about', 'middleware'=>'mymiddle']);
 
 // обращение к методам REST
 Route::resource('/pages', 'CoreResource');
