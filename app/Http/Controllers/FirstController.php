@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
 class FirstController extends Controller
@@ -30,6 +31,7 @@ class FirstController extends Controller
         $request->only('name', 'email'); // покажет определенные параметры
         $request->except('password'); // покажет все параметры, кроме указанных*/
 
-        return view('template.contact', ['title' => 'Contact']);
+        $view = view('template.contact', ['title' => 'Contact'])->render();
+        return (new Response($view))->header('Content-Type', 'newType');
     }
 }
