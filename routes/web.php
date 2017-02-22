@@ -12,8 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('template.site', ['title' => 'Новый шаблон']); // передача параметров в шаблон (1-й вариант)
+    // return view('template.site')->with('title', 'Новый шаблон'); // передача параметров в шаблон (2-й вариант)
+    // return view('template.site')->withTitle('Новый шаблон'); // передача параметров в шаблон (3-й вариант)
+
+    // использование with, если значений будет несколько
+    /*$view = view('template.site');
+    $view->with('title1', 'Новый шаблон1');
+    $view->with('title2', 'Новый шаблон2');
+    return $view;*/
 });
+
+Route::get('/link', ['uses' => 'FirstController@show', 'as'=>'home']);
 
 Route::get('/page', function () {
     // echo "<pre>";
