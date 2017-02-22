@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=$title?></title>
+    <title>{{$title}}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -21,6 +21,7 @@
 
 <body>
 
+@section('navbar')
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -35,19 +36,24 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="<?=route('home')?>">About</a></li>
-                <li><a href="<?=route('article', array('id'=>25))?>">Contact</a></li>
+                <li><a href="{{route('home')}}">About</a></li>
+                <li><a href="{{route('article', array('id'=>25))}}">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
+@show
+
+@section('h1')
+<h1>Bootstrap starter template</h1>
+@endsection
 
 <div class="container">
     <p><br /></p>
     <p><br /></p>
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        @yield('h1')
+        @yield('content')
     </div>
 
 </div><!-- /.container -->

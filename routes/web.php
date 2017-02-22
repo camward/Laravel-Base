@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('template.site', ['title' => 'Новый шаблон']); // передача параметров в шаблон (1-й вариант)
+    return view('template.index', ['title' => 'Новый шаблон']); // передача параметров в шаблон (1-й вариант)
     // return view('template.site')->with('title', 'Новый шаблон'); // передача параметров в шаблон (2-й вариант)
     // return view('template.site')->withTitle('Новый шаблон'); // передача параметров в шаблон (3-й вариант)
 
@@ -70,7 +70,8 @@ Route::group(['prefix'=>'admin'], function() {
 
 // сформируем ссылку на route, к которой можно будет обращаться по redirect()->route('article', array('id'=>25))
 Route::get('article/{id}', ['as'=>'article', function ($id){
-    echo $id;
+    echo '<br /><br /><br />'.$id;
+    return view('template.article', ['title' => 'Новый шаблон']);
 }]);
 
 // использование методов контроллера
