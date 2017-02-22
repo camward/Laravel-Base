@@ -39,6 +39,9 @@ Route::match(['get', 'post', 'put'], '/match', function () {
     echo "match";
 });
 
+// для Request
+Route::match(['get', 'post'], '/contact', ['uses' => 'FirstController@contact', 'as'=>'contact']);
+
 // для всех типов запросов
 Route::any('/any', function () {
     echo "any";

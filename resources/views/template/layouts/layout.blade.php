@@ -37,7 +37,8 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="{{route('home')}}">About</a></li>
-                <li><a href="{{route('article', array('id'=>25))}}">Contact</a></li>
+                <li><a href="{{route('contact')}}">Contact</a></li>
+                <li><a href="{{route('article', array('id'=>25))}}">Article</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
