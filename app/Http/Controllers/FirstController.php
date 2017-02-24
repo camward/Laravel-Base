@@ -5,11 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use DB;
 
 class FirstController extends Controller
 {
     public function show(){
         echo "controller work show";
+
+        /*DB::insert('INSERT INTO `articles` (`name`, `text`, `img`) VALUES (?,?,?)', [
+            'Статья 4',
+            'Текст статьи 4',
+            'img4.jpg'
+        ]);*/
+
+        // DB::update('UPDATE `articles` SET `name` = ? WHERE `id` = ?', ["TEST2", 2]);
+
+        // DB::delete('DELETE FROM `articles` WHERE `id` = ?', [2]);
+
+        // DB::statement('DROP TABLE `articles`');
+
+        // $art = DB::select("SELECT * From `articles`");
+        // $art = DB::select("SELECT * From `articles` WHERE `id` = ?", [2]);
+        $art = DB::select("SELECT * From `articles` WHERE `id` = :id", ['id'=>2]);
+        dump($art);
     }
 
     public function hide(){
