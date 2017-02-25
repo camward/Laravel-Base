@@ -14,4 +14,13 @@ class Article extends Model
 
     // нет прав на запись в img через Article::create
     // protected $guarded = ['img'];
+
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function roles(){
+        return $this->belongsToMany('App\User', 'table_name', 'role_id', 'user_id');
+    }
 }

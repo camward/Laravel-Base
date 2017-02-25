@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -12,6 +13,9 @@ class FirstController extends Controller
 {
     public function show(){
         echo "controller work show";
+
+        $user = User::find(1);
+        dump($user->country); // обращаемся к country из модели User
 
         /*DB::insert('INSERT INTO `articles` (`name`, `text`, `img`) VALUES (?,?,?)', [
             'Статья 4',
