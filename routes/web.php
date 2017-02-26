@@ -85,3 +85,6 @@ Route::get('/about/{id}', ['uses' => 'FirstController@hide', 'as'=>'about', 'mid
 
 // обращение к методам REST
 Route::resource('/pages', 'CoreResource');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index');
