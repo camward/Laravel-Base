@@ -1,6 +1,15 @@
 @extends('template.layouts.layout')
 
 @section('content')
+
+    @if(count($errors) > 0)
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     <form class="form-horizontal" role="form" method="post" action="{{ route('contact') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">

@@ -84,6 +84,16 @@ class FirstController extends Controller
     }*/
 
     public function contact(Request $request){
+
+        if($request->isMethod('post')){
+            $rules = [
+                'email'=>'email',
+                'password'=>'required|max:6'
+            ];
+
+            $this->validate($request, $rules);
+        }
+
         echo "<br /><br /><br />";
         echo "<pre>";
         print_r($request->all());
