@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MyEvent;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Article;
+use Illuminate\Support\Facades\Event;
 
 class FirstController extends Controller
 {
@@ -92,6 +94,9 @@ class FirstController extends Controller
             ];
 
             $this->validate($request, $rules);
+
+            Event::fire(new MyEvent('article', 'user'));
+            // или event(new MyEvent('article', 'user'));
         }
 
         echo "<br /><br /><br />";
